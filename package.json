@@ -1,0 +1,25 @@
+{
+  "name": "coursp2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preview": "live-server dist/",
+    "build": "webpack",
+    "watch": "webpack --mode=development --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.11",
+    "css-loader": "^5.2.2",
+    "mini-css-extract-plugin": "^1.5.0",
+    "vue-loader": "^16.2.0",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "vue": "^3.0.11"
+  }
+}
