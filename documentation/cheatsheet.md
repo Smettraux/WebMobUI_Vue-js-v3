@@ -1,5 +1,5 @@
 # VUE3 CHEATSHEET FOR DEVELOPERS
-credits to <a href="https://learnuve.co">learnvue.co</a>
+credits to <a href="https://learnvue.co/">learnvue.co</a>
 <hr>
 
 ## CREATING YOUR APP WITH VITE
@@ -346,4 +346,4 @@ vuex State  //Management Library
 
 
 ## CREDITS
-All thanks to <a href="matt@learnvue.co">Matt from LearnVue</a>.
+All thanks to Matt from<a href="https://learnvue.co/">LearnVue</a>.
