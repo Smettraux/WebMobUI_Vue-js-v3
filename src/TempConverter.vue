@@ -1,73 +1,50 @@
 <script>
+  import InputNumber from './InputNumber.vue';
+  import {ref, watch, nextTick, computed} from 'vue';
+
   export default {
-    data() {
-      return {
-        tempSi: 0
-      }
+    components: {
+      InputNumber
     },
 
-    watch: {
-      tempSi(nVal, oldVal) {
-        if (nVal < 0) {
-          this.tempSi = 0;
-        }
-      }
-    },
+    setup() {
+      const tempSi = ref(0);
 
-    computed: {
-      kelvin: {
-        get() {
-          return this.tempSi;
-        },
-        set(val) {
-          this.tempSi = val === '' ? '' :parseFloat(val);
+      watch(tempSi, async t => {
+        if (t < 0) {
+          await nextTick();
+          tempSi.value = 0;
         }
-      },
-      celsius: {
-        get() {
-          return this.tempSi === '' ? '' : this.tempSi - 273.15;
-        },
-        set(val) {
-          this.tempSi = val === '' ? '' : parseFloat(val) + 273.15;
-        }
-      },
-      fahrenheit: {
-        get() {
-          return this.tempSi === '' ? '' : this.tempSi * 1.8 - 459.67;
-        },
-        set(val) {
-         this.tempSi = val === '' ? '' : (parseFloat(val) + 459.67) / 1.8;
-        }
-      }
-    },
+      });
 
-    methods: {
-      round(val) {
-        return val == '' ? '' : parseFloat(val.toFixed(2));
-      }
+      const kelvin = computed({
+        get: () => tempSi.value,
+        set: val => tempSi.value = val
+      });
+
+      const celsius =  computed({
+        get: () => tempSi.value - 273.15,
+        set: val => tempSi.value = val + 273.15
+      });
+
+      const fahrenheit =  computed({
+         get: () => tempSi.value * 1.8 - 459.67,
+         set: val => tempSi.value = (val + 459.67) / 1.8
+      });
+      const cl = e => console.log(e.target.value === 'Amélie');
+      return {kelvin, celsius, fahrenheit, cl};
     }
-
   }
 </script>
 
 <template>
   <div>
-    <label>Kelvin</label>
-    <input type="number" :value="round(kelvin)" @input="kelvin = $event.target.value">
-    <!--input type="number" v-model.number="kelvin"-->
-    <label>Celsius</label>
-    <input type="number" :value="round(celsius)" @input="celsius = $event.target.value">
-    <label>Fahrenheit</label>
-    <input type="number" :value="round(fahrenheit)" @input="fahrenheit = $event.target.value">
+    <input-number label="Kelvin" deco="K" :value="kelvin" @update:value="kelvin = $event"></input-number>
+    <input-number label="Celsius" deco="°C" :value="celsius" @update:value="celsius = $event"></input-number>
+    <input-number label="Fahrenheit" deco="°F" :value="fahrenheit" @update:value="fahrenheit = $event"></input-number>
   </div>
 </template>
 
 <style>
-  div {
-    display: grid;
-  }
-  div > * {
-    font-size: 1.5rem;
-    margin: 0 0 1rem 0;
-  }
+
 </style>

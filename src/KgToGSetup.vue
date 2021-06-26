@@ -1,19 +1,20 @@
 <script>
-import { ref, computed } from "vue";
+  import {ref, computed} from 'vue';
 
-export default {
-  setup(props) {
-    const kg = ref(0);
-    const g = computed(() => kg.value * 1000);
-    const updateKg = (event) => (kg.value = event.target.value);
-    return { kg, g, updateKg };
-  },
-};
+  export default {
+    setup(props) {
+      const kg = ref(0);
+      const g = computed(() => kg.value * 1000);
+      const updateKg = (event) => kg.value = event.target.value;
+      return {kg, g, updateKg};
+    }
+  }
+
 </script>
 
 <template>
   <div>
-    <input @input="updateKg" type="number" :value="kg"> [Kg] 
+    <input @input="updateKg" type="number" :value="kg"> [Kg]
   </div>
   <div>
     {{ g }} [g]
@@ -22,7 +23,7 @@ export default {
 </template>
 
 <style scoped>
-span {
-  color: tomato;
-}
+  span {
+    color: tomato;
+  }
 </style>

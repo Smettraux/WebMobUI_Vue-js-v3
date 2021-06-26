@@ -1,14 +1,86 @@
 
+label[data-v-7640826c] {grid-area: label}
+input[data-v-7640826c] {grid-area: input}
+span[data-v-7640826c]  {grid-area: deco}
+div[data-v-7640826c] {
+    display: grid;
+    width: 12rem;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "label label"
+      "input deco"
+    ;
+}
+div *[data-v-7640826c] {
+    font-size: 1.4rem;
+    margin: 0 0 0.3rem 0;
+    user-select: none;
+}
+input[data-v-7640826c] {
+    font-size: 1.3rem;
+    border: solid 1px #777;
+    border-width: 1px;
+}
+span[data-v-7640826c] {
+    font-size: 1.3rem;
+    border: solid 1px #777;
+    background-color: #ddd;
+    padding: 0 0.5rem;
+    border-width: 1px 1px 1px 0;
+    min-width: 1.5rem;
+    display: grid;
+    place-items: center;
+}
+
+
+
 div {
     display: grid;
+    place-items: center;
+    font-family: monospace;
+    max-width: 32rem;
+    margin: 0 auto;
 }
-div > * {
-    font-size: 1.5rem;
-    margin: 0 0 1rem 0;
+button {
+    display: inline-block;
+    margin: 1rem;
+    padding: 0.3rem 0;
+    min-width: 4rem;
+    background: white;
+    border: solid black 1px;
+    cursor: pointer;
+}
+fieldset {
+    border: none;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td {
+    padding: 0.2rem 0.5rem;
+    border: solid black 1px;
+}
+.highlight {
+    background: #eff;
 }
 
 
-span[data-v-4397d466] {
-  color: tomato;
+a[data-v-3978d694] {
+    color: black;
+}
+a.active[data-v-3978d694], a[data-v-3978d694]:hover {
+    color:tomato
+}
+.fade-enter-active[data-v-3978d694], .fade-leave-active[data-v-3978d694] {
+    transition: all .5s ease;
+}
+.fade-enter-from[data-v-3978d694], .fade-leave-to[data-v-3978d694] {
+    opacity: 0;
 }
 

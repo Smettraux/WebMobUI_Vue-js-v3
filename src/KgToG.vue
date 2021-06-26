@@ -23,3 +23,19 @@
 
   }
 </script>
+
+<template>
+  <div>
+    <input @input="updateKg" type="number" :value="kg"> [Kg]
+  </div>
+  <div>
+    {{ g }} [g]
+  </div>
+  <span v-if="isHeavy"> C'est lourd !</span>
+</template>
+
+<style scoped>
+  span {
+    color: tomato;
+  }
+</style>
